@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../../../../core/constants/constans.dart';
-import '../../data/providers/recipes_provider.dart';
+import '../constants/constans.dart';
+import '../../features/recipes/data/providers/recipes_provider.dart';
 
 class NoResultWidget extends StatelessWidget {
   const NoResultWidget({

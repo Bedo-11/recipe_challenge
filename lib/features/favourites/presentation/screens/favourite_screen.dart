@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import '../../../../core/constants/constans.dart';
-import '../../../recipes/presentation/widgets/no_result_widget.dart';
+import '../../../../core/widgets/no_result_widget.dart';
 import '../../data/providers/favourite_provider.dart';
 import '../widgets/favourites_list_widget.dart';
 

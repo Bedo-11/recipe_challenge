@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe_challange/core/enums/request_status.dart';
-import 'package:recipe_challange/core/shimmer_widget.dart';
+import 'package:recipe_challange/core/widgets/shimmer_widget.dart';
 import 'package:recipe_challange/features/recipes/data/models/recipe_model.dart';
 import 'package:recipe_challange/features/recipes/data/repositories/recipe_service.dart';
 import 'package:recipe_challange/features/recipes/data/providers/recipes_provider.dart';
-import 'package:recipe_challange/features/recipes/presentation/widgets/no_result_widget.dart';
+import 'package:recipe_challange/core/widgets/no_result_widget.dart';
 import 'package:recipe_challange/features/recipes/presentation/widgets/recipes_list.dart';
 
 import '../widgets/home_header.dart';
@@ -29,6 +29,7 @@ class _RecipesListScreenState extends State<RecipesListScreen>
   final focusNode = FocusNode();
   List<RecipeModel>? filteredRecipes = [];
 
+  /// Search Function
   searchPosts(String text) {
     setState(() {
       if (text.isEmpty) {
@@ -37,6 +38,7 @@ class _RecipesListScreenState extends State<RecipesListScreen>
       } else {
         text = text.toLowerCase();
         filteredRecipes = recipes?.where((recipe) {
+          /// search by name
           var recipeName = recipe.name!.toLowerCase();
           return recipeName.contains(text);
         }).toList();
