@@ -154,17 +154,8 @@ class RecipeModel {
         isOneTop: json["is_one_top"],
         seoPath: json["seo_path"],
         prepTimeMinutes: json["prep_time_minutes"],
-        // sections: json["sections"] == null
-        //     ? []
-        //     : List<Section>.from(
-        //         json["sections"]!.map((x) => Section.fromJson(x))),
-        // nutritionVisibility:
-        //     nutritionVisibilityValues.map[json["nutrition_visibility"]]!,
         brand: json["brand"] == null ? null : Brand.fromJson(json["brand"]),
         servingsNounPlural: json["servings_noun_plural"],
-        // topics: json["topics"] == null
-        //     ? []
-        //     : List<Topic>.from(json["topics"]!.map((x) => Topic.fromJson(x))),
         totalTimeMinutes: json["total_time_minutes"],
         originalVideoUrl: json["original_video_url"],
         nutrition: json["nutrition"] == null
@@ -175,9 +166,6 @@ class RecipeModel {
         totalTimeTier: json["total_time_tier"] == null
             ? null
             : TotalTimeTier.fromJson(json["total_time_tier"]),
-        // compilations: json["compilations"] == null
-        //     ? []
-        //     : List<dynamic>.from(json["compilations"]!.map((x) => x)),
         tipsAndRatingsEnabled: json["tips_and_ratings_enabled"],
       );
 
@@ -332,14 +320,6 @@ class Instruction {
         // "appliance": applianceValues.reverse[appliance],
       };
 }
-
-// enum Appliance { OVEN, FOOD_THERMOMETER, STOVETOP }
-
-// final applianceValues = EnumValues({
-//   "food_thermometer": Appliance.FOOD_THERMOMETER,
-//   "oven": Appliance.OVEN,
-//   "stovetop": Appliance.STOVETOP
-// });
 
 enum Language { ENG, UND }
 
@@ -611,9 +591,6 @@ class RecipeElement {
         keywords: json["keywords"],
         cookTimeMinutes: json["cook_time_minutes"],
         id: json["_id"],
-        // type: typeValues.map[json["_type"]]!,
-        // index: indexValues.map[json["_index"]]!,
-        // opType: opTypeValues.map[json["_op_type"]]!,
       );
 
   Map<String, dynamic> toJson() => {
@@ -779,14 +756,6 @@ class Compilation {
       };
 }
 
-// enum CompilationAspectRatio { THE_11, THE_45, THE_169 }
-//
-// final compilationAspectRatioValues = EnumValues({
-//   "1:1": CompilationAspectRatio.THE_11,
-//   "16:9": CompilationAspectRatio.THE_169,
-//   "4:5": CompilationAspectRatio.THE_45
-// });
-
 class Show {
   Show({
     this.name,
@@ -889,11 +858,6 @@ class Credit {
         "type": brandTypeValues.reverse[type],
       };
 }
-
-// enum Index { RECIPES_20230405211806 }
-//
-// final indexValues =
-//     EnumValues({"recipes-20230405211806": Index.RECIPES_20230405211806});
 
 enum OpType { INDEX }
 

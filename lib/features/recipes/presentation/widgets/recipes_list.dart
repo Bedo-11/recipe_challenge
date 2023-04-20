@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_challange/features/recipes/presentation/widgets/recipe_card.dart';
-
 import '../../data/models/recipe_model.dart';
 
 class HomeBody extends StatelessWidget {
@@ -25,8 +24,7 @@ class HomeBody extends StatelessWidget {
       },
       itemBuilder: (BuildContext context, int index) {
         return Padding(
-          padding:
-              const EdgeInsets.only(left: 15, right: 15, top: 5, bottom: 5),
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
           child: RecipeCard(
             recipeModel: recipes![index],
           ),

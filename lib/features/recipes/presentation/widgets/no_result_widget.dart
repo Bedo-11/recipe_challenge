@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/constants/constans.dart';
+import '../../data/providers/recipes_provider.dart';
 
 class NoResultWidget extends StatelessWidget {
   const NoResultWidget({
@@ -27,5 +28,27 @@ class NoResultWidget extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class NoConnectionWidget extends StatelessWidget {
+  const NoConnectionWidget({
+    super.key,
+    required this.recipesProvider,
+  });
+
+  final RecipesProvider recipesProvider;
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+        child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Text("No Internet Connection"),
+        TextButton(
+            onPressed: () => recipesProvider.getRecipes(),
+            child: const Text("Try Again"))
+      ],
+    ));
   }
 }

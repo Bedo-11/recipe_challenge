@@ -1,8 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
-
-import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:flutter/services.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 abstract class NetworkInfo {

@@ -67,15 +67,17 @@ class _RecipeDetailsState extends State<RecipeDetails> {
                     const SectionHead(
                       title: "Recipe instructions",
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: instructions != null
-                          ? instructions
-                              .map((step) =>
-                                  Text("${step.position}: ${step.displayText}"))
-                              .toList()
-                          : [const Text("No instructions provided!")],
-                    ),
+                    instructions!.isNotEmpty
+                        ? ListView.builder(
+                            padding: EdgeInsets.zero,
+                            shrinkWrap: true,
+                            itemCount: instructions.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return Text(
+                                  "${index + 1}. ${instructions[index].displayText}");
+                            },
+                          )
+                        : const Text("No instructions provided!"),
                   ],
                 ).paddingHorizontallyVertically(10, 20),
               ],

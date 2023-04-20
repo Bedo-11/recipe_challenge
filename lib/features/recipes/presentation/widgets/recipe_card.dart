@@ -43,14 +43,11 @@ class RecipeCard extends StatelessWidget {
                   tag: "RecipeTag${recipeModel.showId}",
                   child: Stack(
                     children: [
-                      FadeInImage(
+                      Image.network(
+                        '${recipeModel.thumbnailUrl}',
                         fit: BoxFit.cover,
                         width: double.infinity,
                         height: size.height * 0.2,
-                        placeholder: const AssetImage("assets/rescipe.png"),
-                        image: NetworkImage(
-                          '${recipeModel.thumbnailUrl}',
-                        ),
                       ),
                       Positioned.fill(
                         child: Container(

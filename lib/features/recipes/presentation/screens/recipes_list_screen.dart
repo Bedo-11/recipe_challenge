@@ -20,7 +20,10 @@ class RecipesListScreen extends StatefulWidget {
   State<RecipesListScreen> createState() => _RecipesListScreenState();
 }
 
-class _RecipesListScreenState extends State<RecipesListScreen> {
+/// use AutomaticKeepAliveClientMixin for better performance experience
+class _RecipesListScreenState extends State<RecipesListScreen>
+    with AutomaticKeepAliveClientMixin<RecipesListScreen> {
+  bool get wantKeepAlive => true;
   RecipeRepository recipeService = RecipeRepository(networkInfo: sl());
   List<RecipeModel>? recipes;
   final focusNode = FocusNode();
@@ -50,7 +53,9 @@ class _RecipesListScreenState extends State<RecipesListScreen> {
 
   @override
   void initState() {
-    getRecipesData();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      getRecipesData();
+    });
     super.initState();
   }
 
@@ -103,27 +108,5 @@ class _RecipesListScreenState extends State<RecipesListScreen> {
           );
         }
     }
-  }
-}
-
-class NoConnectionWidget extends StatelessWidget {
-  const NoConnectionWidget({
-    super.key,
-    required this.recipesProvider,
-  });
-
-  final RecipesProvider recipesProvider;
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-        child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        const Text("No Internet Connection"),
-        TextButton(
-            onPressed: () => recipesProvider.getRecipes(),
-            child: const Text("Try Again"))
-      ],
-    ));
   }
 }
