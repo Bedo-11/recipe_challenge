@@ -30,7 +30,9 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                 ),
               ),
             )
-          : const NoResultWidget(),
+          : const NoResultWidget(
+              title: 'No Favourites Recipes Yet!',
+            ),
     );
   }
 

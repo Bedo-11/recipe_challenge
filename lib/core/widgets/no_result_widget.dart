@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:recipe_challange/library.dart';
 import '../constants/constans.dart';
 import '../../features/recipes/data/providers/recipes_provider.dart';
 
 class NoResultWidget extends StatelessWidget {
   const NoResultWidget({
     Key? key,
+    required this.title,
   }) : super(key: key);
 
+  final String title;
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -17,13 +20,13 @@ class NoResultWidget extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          const Text(
-            "No Results found",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Constants.primaryColor,
-            ),
-          ),
+          Text(title,
+              style: GoogleFonts.dynaPuff(
+                textStyle: const TextStyle(
+                  // fontWeight: FontWeight.bold,
+                  color: Constants.primaryColor,
+                ),
+              )),
         ],
       ),
     );

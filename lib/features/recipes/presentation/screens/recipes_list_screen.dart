@@ -95,7 +95,9 @@ class _RecipesListScreenState extends State<RecipesListScreen>
         );
       default:
         if (filteredRecipes!.isEmpty) {
-          return const NoResultWidget();
+          return const NoResultWidget(
+            title: 'No Results found',
+          );
         } else {
           return SingleChildScrollView(
             child: Column(
